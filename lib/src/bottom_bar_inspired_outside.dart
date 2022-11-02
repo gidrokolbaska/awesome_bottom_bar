@@ -201,7 +201,7 @@ class _BottomBarInspiredOutsideState extends State<BottomBarInspiredOutside> {
             alignment: Alignment.center,
             child: BuildIcon(
               item: item,
-              iconColor: widget.fixed ? widget.colorSelected : itemColor,
+              iconColor: itemColor,
               iconSize: iconSize,
               countStyle: widget.countStyle,
             ),
