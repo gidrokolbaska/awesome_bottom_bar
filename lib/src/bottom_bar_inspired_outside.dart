@@ -37,6 +37,7 @@ class BottomBarInspiredOutside extends StatefulWidget {
   final double? pad;
   final double? radius;
   final int? fixedIndex;
+  final Color shadowColor;
   const BottomBarInspiredOutside({
     Key? key,
     required this.items,
@@ -66,10 +67,12 @@ class BottomBarInspiredOutside extends StatefulWidget {
     this.pad = 4,
     this.radius = 0,
     this.fixedIndex = 0,
+    this.shadowColor,
   }) : super(key: key);
 
   @override
-  _BottomBarInspiredOutsideState createState() => _BottomBarInspiredOutsideState();
+  _BottomBarInspiredOutsideState createState() =>
+      _BottomBarInspiredOutsideState();
 }
 
 class _BottomBarInspiredOutsideState extends State<BottomBarInspiredOutside> {
@@ -87,6 +90,7 @@ class _BottomBarInspiredOutsideState extends State<BottomBarInspiredOutside> {
       padTop: widget.padTop,
       padbottom: widget.padbottom,
       radius: widget.radius,
+      shadowColor: widget.shadowColor ?? const Color.fromRGBO(0, 0, 0, 0.06),
       fixedIndex: widget.fixedIndex,
       itemBuilder: (_, int index, bool active) => buildItem(
         context,
@@ -97,7 +101,8 @@ class _BottomBarInspiredOutsideState extends State<BottomBarInspiredOutside> {
       initialActive: widget.indexSelected,
       iconChip: (int index) => widget.items[index].icon,
       onTap: widget.onTap,
-      chipStyle: widget.chipStyle ?? const ChipStyle(notchSmoothness: NotchSmoothness.defaultEdge),
+      chipStyle: widget.chipStyle ??
+          const ChipStyle(notchSmoothness: NotchSmoothness.defaultEdge),
       curveSize: 70,
       top: widget.top ?? -28,
       containerSize: 56,
@@ -124,10 +129,12 @@ class _BottomBarInspiredOutsideState extends State<BottomBarInspiredOutside> {
           data: index,
           duration: widget.duration ?? const Duration(milliseconds: 350),
           curve: widget.curve ?? Curves.easeInOut,
-          child: buildContentItem(item, itemColor(), widget.iconSize, widget.sizeInside!),
+          child: buildContentItem(
+              item, itemColor(), widget.iconSize, widget.sizeInside!),
         );
       }
-      return buildContentItem(item, itemColor(), widget.iconSize, widget.sizeInside!);
+      return buildContentItem(
+          item, itemColor(), widget.iconSize, widget.sizeInside!);
     }
     return Container(
       padding: EdgeInsets.only(bottom: widget.padbottom!, top: widget.padTop!),
@@ -145,7 +152,11 @@ class _BottomBarInspiredOutsideState extends State<BottomBarInspiredOutside> {
             SizedBox(height: widget.pad),
             Text(
               item.title!,
-              style: Theme.of(context).textTheme.overline?.merge(widget.titleStyle).copyWith(color: itemColor()),
+              style: Theme.of(context)
+                  .textTheme
+                  .overline
+                  ?.merge(widget.titleStyle)
+                  .copyWith(color: itemColor()),
               textAlign: TextAlign.center,
             )
           ],
@@ -154,7 +165,8 @@ class _BottomBarInspiredOutsideState extends State<BottomBarInspiredOutside> {
     );
   }
 
-  Widget buildContentItem(TabItem item, Color itemColor, double iconSize, double sizeInside) {
+  Widget buildContentItem(
+      TabItem item, Color itemColor, double iconSize, double sizeInside) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -163,7 +175,8 @@ class _BottomBarInspiredOutsideState extends State<BottomBarInspiredOutside> {
           Container(
             width: sizeInside,
             height: sizeInside,
-            decoration: BoxDecoration(color: widget.chipStyle?.background!, shape: BoxShape.circle),
+            decoration: BoxDecoration(
+                color: widget.chipStyle?.background!, shape: BoxShape.circle),
             alignment: Alignment.center,
             child: BuildIcon(
               item: item,
