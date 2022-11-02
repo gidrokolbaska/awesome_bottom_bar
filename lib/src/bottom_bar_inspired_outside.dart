@@ -184,7 +184,9 @@ class _BottomBarInspiredOutsideState extends State<BottomBarInspiredOutside> {
                 color: widget.shapeColor ?? widget.backgroundColor,
                 shape: BoxShape.circle,
                 
-                boxShadow: widget.showShapeShadow?[BoxShadow(color: widget.shapeShadowColor??Colors.black,offset: widget.shapeShadowOffset??Offset.zero,),]:null,),
+                boxShadow: widget.showShapeShadow
+                  ?[BoxShadow(color: widget.shapeShadowColor??Colors.black,offset: widget.shapeShadowOffset??Offset.zero,),]
+                  :null,),
             alignment: Alignment.center,
             child: BuildIcon(
               item: item,
