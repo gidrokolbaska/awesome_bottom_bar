@@ -42,6 +42,7 @@ class BottomBarInspiredOutside extends StatefulWidget {
   final bool showShapeShadow;
   final Color? shapeShadowColor;
   final Offset? shapeShadowOffset;
+  final double? shapeShadowBlurRadius;
   const BottomBarInspiredOutside({
     Key? key,
     required this.items,
@@ -76,6 +77,7 @@ class BottomBarInspiredOutside extends StatefulWidget {
     this.showShapeShadow = false,
     this.shapeShadowColor,
     this.shapeShadowOffset,
+    this.shapeShadowBlurRadius,
   }) : super(key: key);
 
   @override
@@ -191,6 +193,7 @@ class _BottomBarInspiredOutsideState extends State<BottomBarInspiredOutside> {
                       BoxShadow(
                         color: widget.shapeShadowColor ?? Colors.black,
                         offset: widget.shapeShadowOffset ?? Offset.zero,
+                        blurRadius: widget.shapeShadowBlurRadius ?? 0,
                       ),
                     ]
                   : null,
