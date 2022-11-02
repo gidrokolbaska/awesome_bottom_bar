@@ -42,38 +42,41 @@ class BottomBarInspiredOutside extends StatefulWidget {
   final bool showShapeShadow;
   final Color? shapeShadowColor;
   final Offset? shapeShadowOffset;
-  const BottomBarInspiredOutside(
-      {Key? key,
-      required this.items,
-      required this.backgroundColor,
-      required this.color,
-      required this.colorSelected,
-      this.height = 40,
-      this.elevation,
-      this.fixed = false,
-      this.indexSelected = 0,
-      this.onTap,
-      this.iconSize = 22,
-      this.titleStyle,
-      this.countStyle,
-      this.chipStyle,
-      this.itemStyle,
-      this.borderRadius,
-      this.boxShadow,
-      this.top,
-      this.animated = true,
-      this.duration,
-      this.curve,
-      this.sizeInside = 48,
-      this.isAnimated = true,
-      this.padTop = 12,
-      this.padbottom = 12,
-      this.pad = 4,
-      this.radius = 0,
-      this.fixedIndex = 0,
-      this.shadowColor,
-      this.shapeColor,this.showShapeShadow = false,this.shapeShadowColor,this.shapeShadowOffset,},)
-      : super(key: key);
+  const BottomBarInspiredOutside({
+    Key? key,
+    required this.items,
+    required this.backgroundColor,
+    required this.color,
+    required this.colorSelected,
+    this.height = 40,
+    this.elevation,
+    this.fixed = false,
+    this.indexSelected = 0,
+    this.onTap,
+    this.iconSize = 22,
+    this.titleStyle,
+    this.countStyle,
+    this.chipStyle,
+    this.itemStyle,
+    this.borderRadius,
+    this.boxShadow,
+    this.top,
+    this.animated = true,
+    this.duration,
+    this.curve,
+    this.sizeInside = 48,
+    this.isAnimated = true,
+    this.padTop = 12,
+    this.padbottom = 12,
+    this.pad = 4,
+    this.radius = 0,
+    this.fixedIndex = 0,
+    this.shadowColor,
+    this.shapeColor,
+    this.showShapeShadow = false,
+    this.shapeShadowColor,
+    this.shapeShadowOffset,
+  }) : super(key: key);
 
   @override
   _BottomBarInspiredOutsideState createState() =>
@@ -181,12 +184,17 @@ class _BottomBarInspiredOutsideState extends State<BottomBarInspiredOutside> {
             width: sizeInside,
             height: sizeInside,
             decoration: BoxDecoration(
-                color: widget.shapeColor ?? widget.backgroundColor,
-                shape: BoxShape.circle,
-                
-                boxShadow: widget.showShapeShadow
-                  ?[BoxShadow(color: widget.shapeShadowColor??Colors.black,offset: widget.shapeShadowOffset??Offset.zero,),]
-                  :null,),
+              color: widget.shapeColor ?? widget.backgroundColor,
+              shape: BoxShape.circle,
+              boxShadow: widget.showShapeShadow
+                  ? [
+                      BoxShadow(
+                        color: widget.shapeShadowColor ?? Colors.black,
+                        offset: widget.shapeShadowOffset ?? Offset.zero,
+                      ),
+                    ]
+                  : null,
+            ),
             alignment: Alignment.center,
             child: BuildIcon(
               item: item,
