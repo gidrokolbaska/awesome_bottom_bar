@@ -38,37 +38,39 @@ class BottomBarInspiredOutside extends StatefulWidget {
   final double? radius;
   final int? fixedIndex;
   final Color? shadowColor;
-  const BottomBarInspiredOutside({
-    Key? key,
-    required this.items,
-    required this.backgroundColor,
-    required this.color,
-    required this.colorSelected,
-    this.height = 40,
-    this.elevation,
-    this.fixed = false,
-    this.indexSelected = 0,
-    this.onTap,
-    this.iconSize = 22,
-    this.titleStyle,
-    this.countStyle,
-    this.chipStyle,
-    this.itemStyle,
-    this.borderRadius,
-    this.boxShadow,
-    this.top,
-    this.animated = true,
-    this.duration,
-    this.curve,
-    this.sizeInside = 48,
-    this.isAnimated = true,
-    this.padTop = 12,
-    this.padbottom = 12,
-    this.pad = 4,
-    this.radius = 0,
-    this.fixedIndex = 0,
-    this.shadowColor,
-  }) : super(key: key);
+  final Color? shapeColor;
+  const BottomBarInspiredOutside(
+      {Key? key,
+      required this.items,
+      required this.backgroundColor,
+      required this.color,
+      required this.colorSelected,
+      this.height = 40,
+      this.elevation,
+      this.fixed = false,
+      this.indexSelected = 0,
+      this.onTap,
+      this.iconSize = 22,
+      this.titleStyle,
+      this.countStyle,
+      this.chipStyle,
+      this.itemStyle,
+      this.borderRadius,
+      this.boxShadow,
+      this.top,
+      this.animated = true,
+      this.duration,
+      this.curve,
+      this.sizeInside = 48,
+      this.isAnimated = true,
+      this.padTop = 12,
+      this.padbottom = 12,
+      this.pad = 4,
+      this.radius = 0,
+      this.fixedIndex = 0,
+      this.shadowColor,
+      this.shapeColor})
+      : super(key: key);
 
   @override
   _BottomBarInspiredOutsideState createState() =>
@@ -175,8 +177,9 @@ class _BottomBarInspiredOutsideState extends State<BottomBarInspiredOutside> {
           Container(
             width: sizeInside,
             height: sizeInside,
-            decoration:
-                BoxDecoration(color: Colors.red, shape: BoxShape.circle),
+            decoration: BoxDecoration(
+                color: widget.shapeColor ?? widget.backgroundColor,
+                shape: BoxShape.circle),
             alignment: Alignment.center,
             child: BuildIcon(
               item: item,
