@@ -39,7 +39,7 @@ class BottomBarInspiredOutside extends StatefulWidget {
   final int? fixedIndex;
   final Color? shadowColor;
   final Color? shapeColor;
-  final bool showShapeShadow = false;
+  final bool showShapeShadow;
   final Color? shapeShadowColor;
   final Offset? shapeShadowOffset;
   const BottomBarInspiredOutside(
@@ -72,7 +72,7 @@ class BottomBarInspiredOutside extends StatefulWidget {
       this.radius = 0,
       this.fixedIndex = 0,
       this.shadowColor,
-      this.shapeColor,this.showShapeShadow,this.shapeShadowColor,this.shapeShadowOffset,},)
+      this.shapeColor,this.showShapeShadow = false,this.shapeShadowColor,this.shapeShadowOffset,},)
       : super(key: key);
 
   @override
