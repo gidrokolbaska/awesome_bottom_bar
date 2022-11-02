@@ -175,8 +175,8 @@ class _BottomBarInspiredOutsideState extends State<BottomBarInspiredOutside> {
           Container(
             width: sizeInside,
             height: sizeInside,
-            decoration: BoxDecoration(
-                color: widget.backgroundColor, shape: BoxShape.circle),
+            decoration:
+                BoxDecoration(color: Colors.red, shape: BoxShape.circle),
             alignment: Alignment.center,
             child: BuildIcon(
               item: item,
