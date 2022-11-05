@@ -21,6 +21,7 @@ class BuildIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     // Check if the icon is a Widget
     if (item.icon is Widget) {
+      print('hello?');
       return SizedBox(
         width: iconSize,
         height: iconSize,
