@@ -47,6 +47,7 @@ class BuildIcon extends StatelessWidget {
           ],
         );
       }
+
       // return SizedBox(
       //   width: iconSize,
       //   height: iconSize,
@@ -59,6 +60,7 @@ class BuildIcon extends StatelessWidget {
       //     child: item.icon as Widget,
       //   ),
       // );
+      return icon;
     }
 
     Widget icon = Icon(
