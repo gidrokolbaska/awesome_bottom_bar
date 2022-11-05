@@ -19,7 +19,6 @@ class BuildIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     // Check if the icon is a Widget
     if (item.icon is Widget) {
       return SizedBox(
@@ -42,6 +41,7 @@ class BuildIcon extends StatelessWidget {
       color: iconColor,
     );
     if (item.count is Widget) {
+      print('show badge');
       double sizeBadge = countStyle?.size ?? 18;
 
       return Stack(
