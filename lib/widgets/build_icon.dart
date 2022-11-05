@@ -24,27 +24,17 @@ class BuildIcon extends StatelessWidget {
       if (item.count is Widget) {
         double sizeBadge = countStyle?.size ?? 18;
         print('hello?');
-        return Stack(
-          clipBehavior: Clip.none,
-          children: [
-            SizedBox(
-              width: iconSize,
-              height: iconSize,
-              child: ShaderMask(
-                shaderCallback: (Rect bounds) {
-                  return LinearGradient(colors: [iconColor, iconColor])
-                      .createShader(bounds);
-                },
-                blendMode: BlendMode.srcIn,
-                child: item.icon as Widget,
-              ),
-            ),
-            PositionedDirectional(
-              start: iconSize - sizeBadge / 2,
-              top: -sizeBadge / 2,
-              child: item.count!,
-            ),
-          ],
+        return SizedBox(
+          width: iconSize,
+          height: iconSize,
+          child: ShaderMask(
+            shaderCallback: (Rect bounds) {
+              return LinearGradient(colors: [iconColor, iconColor])
+                  .createShader(bounds);
+            },
+            blendMode: BlendMode.srcIn,
+            child: item.icon as Widget,
+          ),
         );
       }
 
