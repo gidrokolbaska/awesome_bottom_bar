@@ -23,7 +23,7 @@ class BuildIcon extends StatelessWidget {
     if (item.icon is Widget) {
       if (item.count is Widget) {
         double sizeBadge = countStyle?.size ?? 18;
-
+        print('hello?');
         return Stack(
           clipBehavior: Clip.none,
           children: [
