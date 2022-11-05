@@ -21,7 +21,7 @@ class BuildIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     // Check if the icon is a Widget
     if (item.icon is Widget) {
-      return SizedBox(
+      return Stack( clipBehavior: Clip.none,,children:[ SizedBox(
         width: iconSize,
         height: iconSize,
         child: ShaderMask(
@@ -32,7 +32,12 @@ class BuildIcon extends StatelessWidget {
           blendMode: BlendMode.srcIn,
           child: item.icon as Widget,
         ),
-      );
+      ), PositionedDirectional(
+            start: iconSize - sizeBadge / 2,
+            top: -sizeBadge / 2,
+            child: item.count!,
+          ),],),
+     
     }
 
     Widget icon = Icon(
