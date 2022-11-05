@@ -61,32 +61,33 @@ class BuildIcon extends StatelessWidget {
       //   ),
       // );
       // return item.icon as Widget;
-    }
-
-    Widget icon = Icon(
-      item.icon,
-      size: iconSize,
-      color: iconColor,
-    );
-    if (item.count is Widget) {
-      double sizeBadge = countStyle?.size ?? 18;
-
-      return Stack(
-        clipBehavior: Clip.none,
-        children: [
-          Icon(
-            item.icon,
-            size: iconSize,
-            color: iconColor,
-          ),
-          PositionedDirectional(
-            start: iconSize - sizeBadge / 2,
-            top: -sizeBadge / 2,
-            child: item.count!,
-          ),
-        ],
+    } else {
+      Widget icon = Icon(
+        item.icon,
+        size: iconSize,
+        color: iconColor,
       );
+      if (item.count is Widget) {
+        double sizeBadge = countStyle?.size ?? 18;
+
+        return Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Icon(
+              item.icon,
+              size: iconSize,
+              color: iconColor,
+            ),
+            PositionedDirectional(
+              start: iconSize - sizeBadge / 2,
+              top: -sizeBadge / 2,
+              child: item.count!,
+            ),
+          ],
+        );
+      }
     }
+
     return icon;
   }
 }
