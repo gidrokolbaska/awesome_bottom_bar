@@ -42,7 +42,6 @@ class BuildIcon extends StatelessWidget {
       color: iconColor,
     );
     if (item.count is Widget) {
-      print('show badge');
       double sizeBadge = countStyle?.size ?? 18;
 
       return Stack(
