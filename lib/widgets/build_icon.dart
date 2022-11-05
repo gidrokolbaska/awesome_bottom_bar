@@ -88,5 +88,6 @@ class BuildIcon extends StatelessWidget {
       }
       return icon;
     }
+    return item.icon;
   }
 }
