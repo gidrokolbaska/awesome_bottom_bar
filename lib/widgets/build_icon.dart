@@ -21,23 +21,28 @@ class BuildIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     // Check if the icon is a Widget
     if (item.icon is Widget) {
-      return Stack( clipBehavior: Clip.none,,children:[ SizedBox(
-        width: iconSize,
-        height: iconSize,
-        child: ShaderMask(
-          shaderCallback: (Rect bounds) {
-            return LinearGradient(colors: [iconColor, iconColor])
-                .createShader(bounds);
-          },
-          blendMode: BlendMode.srcIn,
-          child: item.icon as Widget,
-        ),
-      ), PositionedDirectional(
+      return Stack(
+        clipBehavior: Clip.none,
+        children: [
+          SizedBox(
+            width: iconSize,
+            height: iconSize,
+            child: ShaderMask(
+              shaderCallback: (Rect bounds) {
+                return LinearGradient(colors: [iconColor, iconColor])
+                    .createShader(bounds);
+              },
+              blendMode: BlendMode.srcIn,
+              child: item.icon as Widget,
+            ),
+          ),
+          PositionedDirectional(
             start: iconSize - sizeBadge / 2,
             top: -sizeBadge / 2,
             child: item.count!,
-          ),],),
-     
+          ),
+        ],
+      );
     }
 
     Widget icon = Icon(
