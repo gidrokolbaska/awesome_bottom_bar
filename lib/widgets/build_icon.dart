@@ -21,63 +21,44 @@ class BuildIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     // Check if the icon is a Widget
     if (item.icon is Widget) {
-      if (item.count is Widget) {
-        double sizeBadge = countStyle?.size ?? 18;
-        print('hello?');
-        return SizedBox(
-          width: iconSize,
-          height: iconSize,
-          child: ShaderMask(
-            shaderCallback: (Rect bounds) {
-              return LinearGradient(colors: [iconColor, iconColor])
-                  .createShader(bounds);
-            },
-            blendMode: BlendMode.srcIn,
-            child: item.icon as Widget,
-          ),
-        );
-      }
-
-      // return SizedBox(
-      //   width: iconSize,
-      //   height: iconSize,
-      //   child: ShaderMask(
-      //     shaderCallback: (Rect bounds) {
-      //       return LinearGradient(colors: [iconColor, iconColor])
-      //           .createShader(bounds);
-      //     },
-      //     blendMode: BlendMode.srcIn,
-      //     child: item.icon as Widget,
-      //   ),
-      // );
-      // return item.icon as Widget;
-    } else {
-      Widget icon = Icon(
-        item.icon,
-        size: iconSize,
-        color: iconColor,
+      return SizedBox(
+        width: iconSize,
+        height: iconSize,
+        child: ShaderMask(
+          shaderCallback: (Rect bounds) {
+            return LinearGradient(colors: [iconColor, iconColor])
+                .createShader(bounds);
+          },
+          blendMode: BlendMode.srcIn,
+          child: item.icon as Widget,
+        ),
       );
-      if (item.count is Widget) {
-        double sizeBadge = countStyle?.size ?? 18;
-
-        return Stack(
-          clipBehavior: Clip.none,
-          children: [
-            Icon(
-              item.icon,
-              size: iconSize,
-              color: iconColor,
-            ),
-            PositionedDirectional(
-              start: iconSize - sizeBadge / 2,
-              top: -sizeBadge / 2,
-              child: item.count!,
-            ),
-          ],
-        );
-      }
-      return icon;
     }
-    return item.icon;
+
+    Widget icon = Icon(
+      item.icon,
+      size: iconSize,
+      color: iconColor,
+    );
+    if (item.count is Widget) {
+      double sizeBadge = countStyle?.size ?? 18;
+
+      return Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Icon(
+            item.icon,
+            size: iconSize,
+            color: iconColor,
+          ),
+          PositionedDirectional(
+            start: iconSize - sizeBadge / 2,
+            top: -sizeBadge / 2,
+            child: item.count!,
+          ),
+        ],
+      );
+    }
+    return icon;
   }
 }
