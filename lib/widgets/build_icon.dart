@@ -40,7 +40,7 @@ class BuildIcon extends StatelessWidget {
             ),
             PositionedDirectional(
               start: iconSize - sizeBadge / 2,
-              top: -sizeBadge / 2,
+              top: 0,
               child: item.count!,
             ),
           ],
